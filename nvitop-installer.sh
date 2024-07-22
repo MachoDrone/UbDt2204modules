@@ -1,4 +1,6 @@
 #!/bin/sh
+rm -r -f nvitop.sh
+sudo apt update -y
 sudo apt install python3-pip -y
 sudo apt install git -y
 # coreutils installed for chmod on minimal installed Ubuntu
