@@ -1,5 +1,5 @@
 #!/bin/sh
-cd /home/$USER
+cd /home/$SUDO_USER
 rm -r -f glances.sh
 sudo apt update -y
 # coreutils installed for chmod on minimal installed Ubuntu
