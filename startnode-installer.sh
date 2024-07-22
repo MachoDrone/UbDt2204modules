@@ -5,6 +5,6 @@ sudo apt update -y
 # coreutils installed for chmod on minimal installed Ubuntu
 sudo apt install coreutils -y
 sudo apt install wget -y
-wget --no-check-certificate --no-cache --no-cookies https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/TPS-Report.sh
+wget --no-check-certificate --no-cache --no-cookies https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/startnode.sh
 chmod +x startnode.sh
 echo startnode was installed or updated. Run with: ./startnode.sh
