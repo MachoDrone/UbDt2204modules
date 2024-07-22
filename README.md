@@ -24,7 +24,7 @@ These *"modules"* may be installed separately os provided and are likely include
   - `wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/nvtop-installer.sh| sudo bash`
     - Run with: `./nvtop.sh`or simply type `nvtop`
       - - a *nvtop.sh* file is supplied in home folder so user finds and remembers it exists whenever they list the home directory.
-        - this is an older product than nvitop, favored by some users.
+        - this is an older product than nvitop, different chart, favored by some users.
           
       .
 
