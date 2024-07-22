@@ -1,5 +1,5 @@
 #!/bin/ssh
 cd /home/$USER
-sudo rm -r -f tpsview.sh
-wget https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/tpview.sh
-echo tpsview installed or updated
+sudo rm -r -f TPS-Report.sh
+wget https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/TPS-Report.sh
+echo TPS-Report is installed or updated
