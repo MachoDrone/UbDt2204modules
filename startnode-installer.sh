@@ -1,4 +1,4 @@
-#!/bin/ssh
+#!/bin/sh
 cd /home/$USER
 rm -r -f startnode.sh
 sudo apt update -y
