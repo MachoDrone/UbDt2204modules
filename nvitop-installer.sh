@@ -7,8 +7,6 @@ sudo apt install git -y
 # coreutils installed for chmod on minimal installed Ubuntu
 sudo apt install coreutils -y
 git clone --depth=1 https://github.com/XuehaiPan/nvitop.git
-echo ***************************************************************************************************************
-echo ***************************************************************************************************************
 cd /home/$SUDO_USER/nvitop
 pip3 install . --no-color
 pip3 install -r requirements.txt --no-color
