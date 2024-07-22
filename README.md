@@ -11,7 +11,7 @@ These *"modules"* may be installed separately os provided and are likely include
     - Run with: `./TPS-Reports.sh`
       - No cover sheet required ;-)
 
-- Install ***nvitop*** for GPU monitoring: (notice, this is not nvtop)
+- Install ***nvitop*** for GPU monitoring: (notice, this is not nvtop, this is nv'i'top)
   - `wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/nvitop-installer.sh| sudo bash`
     - Run with: `./nvitop.sh`
 
@@ -19,8 +19,13 @@ These *"modules"* may be installed separately os provided and are likely include
   - `wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/glances-installer.sh| sudo bash`
     - Run with: `./glances.sh` or simply type `glances`
       - a *glances.sh* file is supplied in home folder so user finds and remembers it exists whenever they list the home directory.
-
-
+  
+- Install ***nvtop*** for GPU monitoring: (notice, this is not nvitop, or nv'i'top)
+  - `wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/nvtop-installer.sh| sudo bash`
+    - Run with: `./nvtop.sh`or simply type `nvtop`
+      - - a *nvtop.sh* file is supplied in home folder so user finds and remembers it exists whenever they list the home directory.
+        - this is an older, and perhaps, less informative product than nvitop.
+          
       .
 
       more to come
