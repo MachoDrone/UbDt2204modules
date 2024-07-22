@@ -1,5 +1,5 @@
 #!/bin/sh
-cd /home/$USER
+cd /home/$SUDO_USER
 rm -r -f nvitop.sh
 sudo apt update -y
 sudo apt install python3-pip -y
