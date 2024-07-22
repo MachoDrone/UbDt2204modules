@@ -1,4 +1,4 @@
-#!/bin/ssh
+#!/bin/sh
 cd /home/$USER
 rm -r -f TPS-Report.sh
 sudo apt update -y
