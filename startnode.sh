@@ -1,4 +1,3 @@
-#!/bin/sh
 echo "------ $(date +"%a %d%b%g %H:%M:%S") ------"
 bash <(wget -qO- https://nosana.io/testgrid.sh)
 echo "------ $(date +"%a %d%b%g %H:%M:%S") ------"
