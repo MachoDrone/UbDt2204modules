@@ -7,4 +7,6 @@ sudo apt install coreutils -y
 sudo apt install wget -y
 wget --no-check-certificate --no-cache --no-cookies https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/startnode.sh
 chmod +x startnode.sh
+echo "***********************************************************"
 echo startnode was installed or updated. Run with: ./startnode.sh
+echo "-----------------------------------------------------------"
