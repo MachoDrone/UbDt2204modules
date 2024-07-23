@@ -11,7 +11,7 @@ fi
 
 # Define the paths to the scripts
 glances_script="/home/$username/glances.sh"
-tps_report_script="/home/$username/TPS-Report.sh.sh"
+tps_report_script="/home/$username/TPS-Report.sh"
 startnode_script="/home/$username/startnode.sh"
 nvitop_script="/home/$username/nvitop.sh"
 
