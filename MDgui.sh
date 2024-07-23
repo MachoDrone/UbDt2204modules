@@ -10,7 +10,10 @@ sudo apt install openssh-server -y
 sudo rm -f MDtilewin.sh
 wget https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh
 chmod +x MDtilewin.sh
-./MDtilewin.sh
+echo "****************************************************************************************************************"
+echo "****************************************************************************************************************"
+echo "****************************************************************************************************************"
+sudo ./MDtilewin.sh
 sudo rm -f MDtilewin.sh
 # wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh | sudo -E bash
 # wget -qO MDtilewin.sh 'https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh' && sudo bash MDtilewin.sh
