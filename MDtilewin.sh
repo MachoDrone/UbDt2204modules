@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define variables
-AUTOSTART_DIR=~/.config/autostart
-TILE_SCRIPT=/home/$USER/tile_terminals.sh
+AUTOSTART_DIR="$HOME/.config/autostart"
+TILE_SCRIPT="$HOME/tile_terminals.sh"
 
 # Function to check and create .desktop entry if not exists
 create_desktop_entry() {
@@ -37,7 +37,7 @@ fi
 
 # Create .desktop entries for the scripts if they don't already exist
 for script in glances.sh TPS-Report.sh startnode.sh nvitop.sh; do
-    create_desktop_entry "$script" "/home/$USER/$script; exec bash"
+    create_desktop_entry "$script" "$HOME/$script; exec bash"
 done
 
 # Create the tiling script if it doesn't already exist
