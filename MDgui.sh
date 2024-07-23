@@ -7,6 +7,7 @@ sudo apt update -y
 sudo apt install openssh-server -y
 
 # Configure 4 tiled terminal windows
+sudo rm -f MDtilewin.sh
 wget https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh
 chmod +x MDtilewin.sh
 ./MDtilewin.sh
