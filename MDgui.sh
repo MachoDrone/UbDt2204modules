@@ -82,5 +82,8 @@ wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/sta
 # Install Tokens per second monitor
 wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/TPS-Report-installer.sh| sudo bash
 
+echo "************************************************************************************************************************"
+echo "************************************************************************************************************************"
+
 # Install Nosana Node
 wget -qO nosnodeinstaller1.sh 'https://raw.githubusercontent.com/MachoDrone/nosnodeinstaller/main/nosnodeinstaller1.sh' && sudo bash nosnodeinstaller1.sh
