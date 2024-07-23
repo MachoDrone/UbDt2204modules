@@ -8,7 +8,9 @@ sudo apt install openssh-server -y
 
 # Configure 4 tiled terminal windows
 #wget -qO MDgui.sh 'https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDgui.sh' && sudo bash MDgui.sh
-
+echo "****************************************************************************************************************"
+echo "****************************************************************************************************************"
+echo "****************************************************************************************************************"
 mkdir -p ~/.config/autostart && \
 echo '[Desktop Entry]
 Type=Application
