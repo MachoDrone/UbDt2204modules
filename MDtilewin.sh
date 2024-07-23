@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Original contents of MDtilewin.sh
+# (Assuming there are existing commands in MDtilewin.sh. Add those here if needed.)
+
 # Install necessary packages
 sudo apt update
 sudo apt install -y gnome-terminal wmctrl
