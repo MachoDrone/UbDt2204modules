@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# wget -qO MDtilewin.sh 'https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh' && sudo bash MDtilewin.sh
 # Prompt for username
 read -p "Enter your username: " username
 
