@@ -8,18 +8,18 @@ sudo apt install openssh-server -y
 
 # Configure 4 tiled terminal windows
 sudo rm -f MDtilewin.sh
-wget -qO /tmp/MDtilewin.sh 'https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh' && chmod +x /tmp/MDtilewin.sh && sudo /tmp/MDtilewin.sh
+## wget -qO /tmp/MDtilewin.sh 'https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh' && chmod +x /tmp/MDtilewin.sh && sudo /tmp/MDtilewin.sh
 
 # wget https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh
-chmod +x MDtilewin.sh
-echo "****************************************************************************************************************"
-echo "****************************************************************************************************************"
-echo "****************************************************************************************************************"
+# chmod +x MDtilewin.sh
+
 # sudo ./MDtilewin.sh
-sudo rm -f MDtilewin.sh
-# wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh | sudo -E bash
+# sudo rm -f MDtilewin.sh
+wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh | sudo -E bash
 # wget -qO MDtilewin.sh 'https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh' && sudo bash MDtilewin.sh
 # wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh| sudo bash
+echo "****************************************************************************************************************"
+echo "****************************************************************************************************************"
 
 # Install nvitop (this is not nvtop)
 wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/nvitop-installer.sh| sudo bash
