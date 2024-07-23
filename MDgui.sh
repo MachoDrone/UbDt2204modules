@@ -15,7 +15,8 @@ sudo rm -f MDtilewin.sh
 
 # sudo ./MDtilewin.sh
 # sudo rm -f MDtilewin.sh
-wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh | sudo -E bash
+wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh | sudo bash
+# wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh | sudo -E bash
 # wget -qO MDtilewin.sh 'https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh' && sudo bash MDtilewin.sh
 # wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh| sudo bash
 echo "****************************************************************************************************************"
