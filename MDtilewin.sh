@@ -1,60 +1,70 @@
 #!/bin/bash
 
-# Original contents of MDtilewin.sh
-# (Assuming there are existing commands in MDtilewin.sh. Add those here if needed.)
+# Prompt for username
+read -p "Enter your username: " username
 
-# Install necessary packages
+# Check if username is empty
+if [ -z "$username" ]; then
+  echo "Username cannot be empty."
+  exit 1
+fi
+
+# Define the paths to the scripts
+glances_script="/home/$username/glances.sh"
+tps_report_script="/home/$username/TPS-Report.sh.sh"
+startnode_script="/home/$username/startnode.sh"
+nvitop_script="/home/$username/nvitop.sh"
+
+# Install wmctrl
 sudo apt update
-sudo apt install -y gnome-terminal wmctrl
+sudo apt install -y wmctrl
 
-# Create a script to launch and tile terminal windows
-cat << 'EOF' > /home/$USER/launch_terminals.sh
+# Create a script to open terminals and run the scripts
+startup_script="/home/$username/startup-scripts.sh"
+
+cat <<EOL > $startup_script
 #!/bin/bash
 
-# Launch the scripts in new terminal windows
-gnome-terminal -- bash -c "/home/$USER/glances.sh; exec bash" &
-sleep 1
-gnome-terminal -- bash -c "/home/$USER/TPS-Report.sh.sh; exec bash" &
-sleep 1
-gnome-terminal -- bash -c "/home/$USER/startnode.sh; exec bash" &
-sleep 1
-gnome-terminal -- bash -c "/home/$USER/nvitop.sh; exec bash" &
-sleep 1
+# Open terminals and run scripts
+gnome-terminal -- bash -c "$glances_script; exec bash" &
+gnome-terminal -- bash -c "$tps_report_script; exec bash" &
+gnome-terminal -- bash -c "$startnode_script; exec bash" &
+gnome-terminal -- bash -c "$nvitop_script; exec bash" &
 
-# Wait a moment to ensure all terminals are launched
+# Wait for terminals to open
 sleep 5
 
-# Get the window IDs of the launched terminals
-TERMINALS=($(wmctrl -l | grep 'gnome-terminal' | awk '{print $1}'))
+# Tile the terminals
+wmctrl -r :ACTIVE: -e 0,0,0,960,540
+wmctrl -r :ACTIVE: -e 0,960,0,960,540
+wmctrl -r :ACTIVE: -e 0,0,540,960,540
+wmctrl -r :ACTIVE: -e 0,960,540,960,540
+EOL
 
-# Tile the windows 2x2
-SCREEN_WIDTH=$(xdpyinfo | awk '/dimensions:/ {print $2}' | awk -Fx '{print $1}')
-SCREEN_HEIGHT=$(xdpyinfo | awk '/dimensions:/ {print $2}' | awk -Fx '{print $2}')
-HALF_WIDTH=$((SCREEN_WIDTH / 2))
-HALF_HEIGHT=$((SCREEN_HEIGHT / 2))
+# Make the startup script executable
+chmod +x $startup_script
 
-wmctrl -i -r ${TERMINALS[0]} -e 0,0,0,$HALF_WIDTH,$HALF_HEIGHT
-wmctrl -i -r ${TERMINALS[1]} -e 0,$HALF_WIDTH,0,$HALF_WIDTH,$HALF_HEIGHT
-wmctrl -i -r ${TERMINALS[2]} -e 0,0,$HALF_HEIGHT,$HALF_WIDTH,$HALF_HEIGHT
-wmctrl -i -r ${TERMINALS[3]} -e 0,$HALF_WIDTH,$HALF_HEIGHT,$HALF_WIDTH,$HALF_HEIGHT
-EOF
+# Create the autostart directory if it doesn't exist
+autostart_dir="/home/$username/.config/autostart"
+if [ ! -d "$autostart_dir" ]; then
+  mkdir -p $autostart_dir
+fi
 
-# Make the launch script executable
-chmod +x /home/$USER/launch_terminals.sh
+# Create a .desktop entry for the startup script
+desktop_entry="$autostart_dir/startup-scripts.desktop"
 
-# Add the launch script to the startup applications
-mkdir -p /home/$USER/.config/autostart
-cat << 'EOF' > /home/$USER/.config/autostart/launch_terminals.desktop
+cat <<EOL > $desktop_entry
 [Desktop Entry]
 Type=Application
-Exec=/home/$USER/launch_terminals.sh
+Exec=$startup_script
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
-Name[en_US]=Launch Terminals
-Name=Launch Terminals
-Comment[en_US]=Launch 4 CLI scripts in tiled terminals
-Comment=Launch 4 CLI scripts in tiled terminals
-EOF
+Name=Startup Scripts
+Comment=Runs custom startup scripts
+EOL
 
-echo "Setup complete. The scripts will run in tiled terminal windows on GUI startup."
+# Set the correct permissions for the .desktop file
+chmod 644 $desktop_entry
+
+echo "Setup complete. The scripts will run in separate terminals on startup and be tiled 2x2."
