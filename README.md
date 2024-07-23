@@ -8,7 +8,7 @@ These *"modules"* may be installed separately os provided and are likely include
   
 - Install ***TPS-Report*** to watch your average Tokens Per Second:
   - `wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/TPS-Report-installer.sh| sudo bash`
-    - Run with: `./TPS-Reports.sh`
+    - Run with: `./TPS-Report.sh`
       - No cover sheet required ;-)
 
 - Install ***nvitop*** for GPU monitoring: (notice, this is not nvtop, this is nv'i'top)
