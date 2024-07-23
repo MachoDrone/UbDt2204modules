@@ -13,17 +13,17 @@ sudo apt update
 sudo apt install -y gnome-terminal wmctrl
 
 # Create a script to launch and tile terminal windows
-cat << 'EOF' > /home/$USER/launch_terminals.sh
+cat << 'EOF' > /home/$SUDO_USER/launch_terminals.sh
 #!/bin/bash
 
 # Launch the scripts in new terminal windows
-gnome-terminal -- bash -c "/home/$USER/glances.sh; exec bash" &
+gnome-terminal -- bash -c "/home/$SUDO_USER/glances.sh; exec bash" &
 sleep 1
-gnome-terminal -- bash -c "/home/$USER/TPS-Report.sh.sh; exec bash" &
+gnome-terminal -- bash -c "/home/$SUDO_USER/TPS-Report.sh.sh; exec bash" &
 sleep 1
-gnome-terminal -- bash -c "/home/$USER/startnode.sh; exec bash" &
+gnome-terminal -- bash -c "/home/$SUDO_USER/startnode.sh; exec bash" &
 sleep 1
-gnome-terminal -- bash -c "/home/$USER/nvitop.sh; exec bash" &
+gnome-terminal -- bash -c "/home/$SUDO_USER/nvitop.sh; exec bash" &
 sleep 1
 
 # Wait a moment to ensure all terminals are launched
@@ -45,14 +45,14 @@ wmctrl -i -r ${TERMINALS[3]} -e 0,$HALF_WIDTH,$HALF_HEIGHT,$HALF_WIDTH,$HALF_HEI
 EOF
 
 # Make the launch script executable
-chmod +x /home/$USER/launch_terminals.sh
+chmod +x /home/$SUDO_USER/launch_terminals.sh
 
 # Add the launch script to the startup applications
-mkdir -p /home/$USER/.config/autostart
-cat << 'EOF' > /home/$USER/.config/autostart/launch_terminals.desktop
+mkdir -p /home/$SUDO_USER/.config/autostart
+cat << 'EOF' > /home/$SUDO_USER/.config/autostart/launch_terminals.desktop
 [Desktop Entry]
 Type=Application
-Exec=/home/$USER/launch_terminals.sh
+Exec=/home/$SUDO_USER/launch_terminals.sh
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true
