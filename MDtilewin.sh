@@ -4,16 +4,15 @@
 AUTOSTART_DIR="$HOME/.config/autostart"
 TILE_SCRIPT="$HOME/tile_terminals.sh"
 
-# Function to check and create .desktop entry if not exists
+# Function to create .desktop entry
 create_desktop_entry() {
     local script_name=$1
     local script_path=$2
 
     local desktop_entry="$AUTOSTART_DIR/$script_name.desktop"
 
-    if [ ! -f "$desktop_entry" ]; then
-        echo "Creating $desktop_entry..."
-        cat << EOF > "$desktop_entry"
+    echo "Creating $desktop_entry..."
+    cat << EOF > "$desktop_entry"
 [Desktop Entry]
 Type=Application
 Exec=gnome-terminal --title="$script_name" -- bash -c "$script_path; exec bash"
@@ -22,28 +21,19 @@ NoDisplay=false
 X-GNOME-Autostart-enabled=true
 Name=$script_name
 EOF
-    else
-        echo "$desktop_entry already exists, skipping..."
-    fi
 }
 
 # Ensure the autostart directory exists
-if [ ! -d "$AUTOSTART_DIR" ]; then
-    echo "Creating autostart directory $AUTOSTART_DIR..."
-    mkdir -p "$AUTOSTART_DIR"
-else
-    echo "Autostart directory $AUTOSTART_DIR already exists."
-fi
+mkdir -p "$AUTOSTART_DIR"
 
-# Create .desktop entries for the scripts if they don't already exist
-for script in glances.sh TPS-Report.sh startnode.sh nvitop.sh; do
-    create_desktop_entry "$script" "$HOME/$script; exec bash"
+# Create .desktop entries for the scripts
+for script in glances.sh tpsview.sh startnode.sh nvitop.sh; do
+    create_desktop_entry "$script" "$HOME/$script"
 done
 
-# Create the tiling script if it doesn't already exist
-if [ ! -f "$TILE_SCRIPT" ]; then
-    echo "Creating tiling script $TILE_SCRIPT..."
-    cat << 'EOF' > "$TILE_SCRIPT"
+# Create the tiling script
+echo "Creating tiling script $TILE_SCRIPT..."
+cat << 'EOF' > "$TILE_SCRIPT"
 #!/bin/bash
 
 # Give time for the terminal windows to open
@@ -75,15 +65,11 @@ for ID in $TERMINAL_IDS; do
     COUNTER=$((COUNTER + 1))
 done
 EOF
-    chmod +x "$TILE_SCRIPT"
-else
-    echo "Tiling script $TILE_SCRIPT already exists, skipping..."
-fi
+chmod +x "$TILE_SCRIPT"
 
-# Create a .desktop entry for the tiling script if it doesn't already exist
-if [ ! -f "$AUTOSTART_DIR/tile_terminals.desktop" ]; then
-    echo "Creating $AUTOSTART_DIR/tile_terminals.desktop..."
-    cat << EOF > "$AUTOSTART_DIR/tile_terminals.desktop"
+# Create a .desktop entry for the tiling script
+echo "Creating $AUTOSTART_DIR/tile_terminals.desktop..."
+cat << EOF > "$AUTOSTART_DIR/tile_terminals.desktop"
 [Desktop Entry]
 Type=Application
 Exec=$TILE_SCRIPT
@@ -92,8 +78,5 @@ NoDisplay=false
 X-GNOME-Autostart-enabled=true
 Name=Tile Terminals
 EOF
-else
-    echo "$AUTOSTART_DIR/tile_terminals.desktop already exists, skipping..."
-fi
 
 echo "Setup complete. The scripts will run and be tiled at startup."
