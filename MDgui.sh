@@ -8,7 +8,10 @@ sudo apt install openssh-server -y
 
 # Configure 4 tiled terminal windows
 wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MD4tile.sh | sudo tee /usr/local/bin/MD4tile.sh > /dev/null && sudo chmod +x /usr/local/bin/MD4tile.sh && sudo /usr/local/bin/MD4tile.sh
-
+echo "************************************************************************************************************************"
+echo "************************************************************************************************************************"
+echo "************************************************************************************************************************"
+echo "************************************************************************************************************************"
 # Install nvitop (this is not nvtop)
 wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/nvitop-installer.sh| sudo bash
 
