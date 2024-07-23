@@ -36,7 +36,7 @@ else
 fi
 
 # Create .desktop entries for the scripts if they don't already exist
-for script in glances.sh TPS-Report.sh startnode.sh nvitop.sh; do
+for script in glances.sh tpsview.sh startnode.sh nvitop.sh; do
     create_desktop_entry "$script" "/home/$USER/$script; exec bash"
 done
 
