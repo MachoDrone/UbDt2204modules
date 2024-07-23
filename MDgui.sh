@@ -1,5 +1,5 @@
 #!/bin/bash
-
+# wget -qO MDgui.sh 'https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDgui.sh' && sudo bash MDgui.sh
 # Define variables
 AUTOSTART_DIR=~/.config/autostart
 TILE_SCRIPT=/home/$USER/tile_terminals.sh
