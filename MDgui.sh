@@ -7,20 +7,61 @@ sudo apt update -y
 sudo apt install openssh-server -y
 
 # Configure 4 tiled terminal windows
-sudo rm -f MDtilewin.sh
-## wget -qO /tmp/MDtilewin.sh 'https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh' && chmod +x /tmp/MDtilewin.sh && sudo /tmp/MDtilewin.sh
+wget -qO MDgui.sh 'https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDgui.sh' && sudo bash MDgui.sh
 
-# wget https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh
-# chmod +x MDtilewin.sh
+mkdir -p ~/.config/autostart && \
+echo '[Desktop Entry]
+Type=Application
+Exec=gnome-terminal -- bash -c "sleep 5; /home/$USER/glances.sh"
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Glances
+Comment=Run Glances script' > ~/.config/autostart/glances.desktop && \
+echo '[Desktop Entry]
+Type=Application
+Exec=gnome-terminal -- bash -c "sleep 5; /home/$USER/TPS-Report.sh"
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=TPS-Report
+Comment=Run TPS-Report script' > ~/.config/autostart/TPS-Report.desktop && \
+echo '[Desktop Entry]
+Type=Application
+Exec=gnome-terminal -- bash -c "sleep 5; /home/$USER/startnode.sh"
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Start Node
+Comment=Run Start Node script' > ~/.config/autostart/startnode.desktop && \
+echo '[Desktop Entry]
+Type=Application
+Exec=gnome-terminal -- bash -c "sleep 5; /home/$USER/nvitop.sh"
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Nvitop
+Comment=Run Nvitop script' > ~/.config/autostart/nvitop.desktop
 
-# sudo ./MDtilewin.sh
-# sudo rm -f MDtilewin.sh
-wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh | sudo bash
-# wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh | sudo -E bash
-# wget -qO MDtilewin.sh 'https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh' && sudo bash MDtilewin.sh
-# wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh| sudo bash
-echo "****************************************************************************************************************"
-echo "****************************************************************************************************************"
+# Add tiling script
+echo '#!/bin/bash
+echo "--------------------------------------------"
+echo "10 second pause"
+echo "--------------------------------------------"
+sleep 10
+wmctrl -lG | grep "gnome-terminal" | while read -r id; do wmctrl -i -r "$id" -e 0,0,0,960,540; done' > ~/tile_windows.sh
+chmod +x ~/tile_windows.sh
+
+mkdir -p ~/.config/autostart && \
+echo '[Desktop Entry]
+Type=Application
+Exec=/home/$USER/tile_windows.sh
+Hidden=false
+NoDisplay=false
+X-GNOME-Autostart-enabled=true
+Name=Tile Windows
+Comment=Tile terminal windows 2x2' > ~/.config/autostart/tile_windows.desktop
+
 
 # Install nvitop (this is not nvtop)
 wget -qO - https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/nvitop-installer.sh| sudo bash
