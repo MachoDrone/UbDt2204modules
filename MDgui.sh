@@ -6,13 +6,8 @@
 sudo apt update -y
 sudo apt install openssh-server -y
 
-# Configure 4 tiled terminal windows#!/bin/bash
-
-# Install necessary packages
-sudo apt update
-
-# Create a script to launch and tile terminal windows
-
+# Autolaunch and tile 4 terminal windows
+wget -qO MDtilewin.sh 'https://raw.githubusercontent.com/MachoDrone/UbDt2204modules/main/MDtilewin.sh' && sudo bash MDtilewin.sh
 
 echo "************************************************************************************************************************"
 echo "************************************************************************************************************************"
